@@ -1376,3 +1376,12 @@ sent-message {
   padding: 15px;
   font-weight: 600;
 }
+
+button[type="submit"] {
+  background: #ffb727;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 5px;
+}
