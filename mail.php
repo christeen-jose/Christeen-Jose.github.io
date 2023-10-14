@@ -1,12 +1,21 @@
 <?php
 
-$recepient = "christeenjose11@gmail.com";
-$sitename = "Arter";
+$to = "christeenjose11@gmail.com";
+$subject = "Contact Form Submission";
+$message = $_POST['message'];
 
-$name = trim($_POST["name"]);
-$email = trim($_POST["email"]);
-$text = trim($_POST["text"]);
-$message = "Name: $name \nEmail: $email \nText: $text";
+// Get the uploaded file
+$file = $_FILES['upload'];
 
-$pagetitle = "New message from the \"$sitename\"";
-mail($recepient, $pagetitle, $message, "Content-type: text/plain; charset=\"utf-8\"\n From: $recepient");
+// Create an email attachment
+$attachment = new PHPMailer\PHPMailer\PHPMailer();
+$attachment->setFrom('no-reply@example.com');
+$attachment->addAddress($to);
+$attachment->Subject = $subject;
+$attachment->Body = $message;
+$attachment->addAttachment($file['tmp_name'], $file['name']);
+
+// Send the email
+$attachment->send();
+
+?>
