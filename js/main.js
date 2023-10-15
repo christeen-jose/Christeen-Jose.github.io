@@ -157,9 +157,6 @@ $(function() {
 
   bar.animate(0.7);
 
-
-  
-
   var bar = new ProgressBar.Line(lineprog1, {
     strokeWidth: 1.72,
     easing: 'easeInOut',
